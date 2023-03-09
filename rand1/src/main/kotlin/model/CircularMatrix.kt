@@ -10,7 +10,7 @@ class CircularMatrix(var matrix: List<List<String>> = ArrayList(ArrayList()), va
             Direction.D -> Coordinate(from.x, if (from.y == r - 1) 0 else from.y + 1)
             Direction.L -> Coordinate(if (from.x == 0) c - 1 else from.x - 1, from.y)
             Direction.R -> Coordinate(if (from.x == c - 1) 0 else from.x + 1, from.y)
-            Direction.W -> TODO()
+            Direction.W -> toWormhole!!
         }
         return Pair(pointsAt(destination), destination)
     }
