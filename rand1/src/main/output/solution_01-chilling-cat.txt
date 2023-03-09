@@ -1,0 +1,49 @@
+0 0 D D D D D D D D D D D D D D D D
+1 0 D D D D D D D D D D D D
+2 0 D D D D D D D D
+3 0 D D D D D D D D D D D D D D D 3 17 D D
+4 0 D D D D D D D D D 4 11 D D D
+5 0 D D D D D
+6 0 D D D D D D D D D D D D D D D D
+7 0 D D D D D D D D D D D D
+8 0 D D D D D D D D D D D D D D D D D D D
+9 0 D D D D D D D D
+10 0 D D D D D D D D D D D D D D D D D D
+11 0 D D D D D D D D D D D D D D D D
+12 0 D D D D D D D D
+13 0 D D 13 4 D D D D D D 13 12 D D D D D D D D D D
+14 0 14 2 D D D D D D D
+15 0 D D D D D D D D D D D D D D D D D D D D
+16 0 D D D D D D D D D D D D D D
+17 0 D D D D D D D D D D 17 12 D D D D D D D D
+18 0 D D D D D
+19 0 D D D D D D D D
+20 0 D D D D D D
+21 0 D D D D D D D D D D D 21 13 D D D D D D
+22 0 D D D D D
+23 0 D D D D D D D
+24 0 D D D D D D D D D D D D D D D D D D D D
+25 0 D D D D D D D
+26 0 D D D D D D D D D D D D D D D D
+27 0 D D D D D D D D D D D D D D
+28 0 D D D D D D D D D D D D D D
+29 0 D D D D D D D D D D D D D
+30 0 D D D D D D D D D D D D D 30 15 D D D 30 20 D D
+31 0 D D D D D D D D D D
+32 0 D D D D D D D D D D D D D
+33 0 D D D D D
+34 0 D D D D D D D D D D D D D D D D D
+35 0 D D D D D D D D D D D D D D D
+36 0 D D D D 36 6 D D D D D D D D D D
+37 0 D D D D D D D D D D
+38 0 D D D D D D
+39 0 D D D D D D D D D D D D D D D D
+40 0 D D D D D D D D D D D D D D D D D D
+41 0 D D D D D D D D D D D D D D
+42 0 D D D D D 42 7 D D D D D D D D D
+null null 
+null null 
+null null 
+null null 
+null null 
+null null 

@@ -3,10 +3,10 @@ package model
 import utils.InputMethod
 
 data class SnakeSerializableModelImpl constructor(
-    val size: Int,
+    var size: Int,
     var start: Coordinate? = null,
-    var positions: List<Coordinate> = ArrayList(),
-    val moves: List<Direction> = ArrayList(),
+    var positions: MutableList<Coordinate> = mutableListOf(),
+    val moves: MutableList<Direction> = mutableListOf(),
     val points: Int = 0
 ) : SerializableModel() {
 
@@ -33,5 +33,9 @@ data class SnakeSerializableModelImpl constructor(
     override fun read(inputMethod: InputMethod): SerializableModel {
         inputMethod.readMultimpleValuesLine()
         return SnakeSerializableModelImpl(0)
+    }
+
+    fun getLastPosition(): Coordinate {
+        return if (positions.isEmpty()) start!! else positions.last()
     }
 }
