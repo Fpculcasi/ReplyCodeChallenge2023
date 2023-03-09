@@ -1,9 +1,10 @@
+import model.Coordinate
 import model.SnakeSerializableModelImpl
 import utils.FileInputMethod
 import utils.FileOutputMethod
 import utils.toInt
 
-fun solveFor(inputFilePath: String){
+fun solveFor(inputFilePath: String) {
 
     val inputMethod = FileInputMethod(inputFilePath)
     val outputMethod = FileOutputMethod("solution_$inputFilePath")//StandardOutputMethod()
@@ -17,15 +18,16 @@ fun solveFor(inputFilePath: String){
     //create model data
     val snakes = inputMethod.readMultimpleValuesLine().toInt().map { SnakeSerializableModelImpl(it) }
 
+    val wormHoles = mutableListOf<Coordinate>()
     val v = mutableListOf<List<String>>()
-    repeat(r) {
-        v.add(it, inputMethod.readMultimpleValuesLine())
+    repeat(r) { x ->
+        val row = inputMethod.readMultimpleValuesLine()
+        v.add(x, row)
+        row.forEachIndexed { y, s -> if (s == "*") wormHoles.add(Coordinate(x, y)) }
     }
 
-    println(snakes)
-
     //solve
-    val result : String = snakes.joinToString { it.write() }//TODO
+    val result: String = snakes.joinToString { it.write() }//TODO
 
     //print result
     outputMethod.writeSolution(result)

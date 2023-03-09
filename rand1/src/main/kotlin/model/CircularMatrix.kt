@@ -15,11 +15,7 @@ class CircularMatrix(var matrix: List<List<String>> = ArrayList(ArrayList()), va
         return Pair(pointsAt(destination), destination)
     }
 
-    fun pointsAt(coordinate: Coordinate) = matrix[coordinate.x][coordinate.y].let {
-        try {
-            it.toInt()
-        } catch (e: Exception) {
-            0
-        }
+    fun pointsAt(coordinate: Coordinate) =
+        matrix[coordinate.x][coordinate.y].let { try { it.toInt() } catch (e: Exception) { 0 }
     }
 }
