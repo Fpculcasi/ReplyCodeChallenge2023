@@ -1,4 +1,4 @@
 
 fun main(args: Array<String>) {
-    solveFor("example_input.txt")
+    solveFor("00-example.txt")
 }
