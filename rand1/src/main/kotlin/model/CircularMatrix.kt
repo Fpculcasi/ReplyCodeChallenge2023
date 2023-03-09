@@ -1,17 +1,25 @@
 package model
 
-class CircularMatrix (var matrix: List<List<String>>? = null, val c: Int, val r: Int){
+import java.lang.Exception
 
-    fun move(val from: Coordinate, val direction: Direction): Pair<Int, Coordinate> {
-        when(direction){
-            Direction.U -> if ()
-            Direction.D -> TODO()
-            Direction.L -> TODO()
-            Direction.R -> TODO()
+class CircularMatrix(var matrix: List<List<String>> = ArrayList(ArrayList()), val c: Int, val r: Int) {
+
+    fun move(from: Coordinate, direction: Direction, toWormhole: Coordinate? = null): Pair<Int, Coordinate> {
+        val destination = when (direction) {
+            Direction.U -> Coordinate(from.x, if (from.y == 0) r - 1 else from.y - 1)
+            Direction.D -> Coordinate(from.x, if (from.y == r - 1) 0 else from.y + 1)
+            Direction.L -> Coordinate(if (from.x == 0) c - 1 else from.x - 1, from.y)
+            Direction.R -> Coordinate(if (from.x == c - 1) 0 else from.x + 1, from.y)
             Direction.W -> TODO()
         }
-        //todo
+        return Pair(pointsAt(destination), destination)
     }
 
-    fun pointsAt(coordinate: Coordinate) = matrix[c.x][c.y]
+    fun pointsAt(coordinate: Coordinate) = matrix[coordinate.x][coordinate.y].let {
+        try {
+            it.toInt()
+        } catch (e: Exception) {
+            0
+        }
+    }
 }
