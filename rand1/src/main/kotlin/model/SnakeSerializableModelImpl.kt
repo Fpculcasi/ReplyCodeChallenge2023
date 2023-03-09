@@ -4,15 +4,14 @@ import utils.InputMethod
 
 data class SnakeSerializableModelImpl constructor(
     val size: Int,
-    var c: Int = -1,
-    var r: Int = -1,
+    var start: Coordinate? = null,
     var positions: List<Coordinate> = ArrayList(),
     val moves: List<Direction> = ArrayList(),
     val points: Int = 0
 ) : SerializableModel() {
 
     override fun write(): String {
-        return "$c $r ${printPath()}"
+        return "${start?.x} ${start?.y} ${printPath()}"
     }
 
     private fun printPath(): String {

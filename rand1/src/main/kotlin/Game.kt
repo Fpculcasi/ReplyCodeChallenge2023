@@ -1,4 +1,6 @@
+import model.CircularMatrix
 import model.Coordinate
+import model.Direction
 import model.SnakeSerializableModelImpl
 import utils.FileInputMethod
 import utils.FileOutputMethod
@@ -25,6 +27,7 @@ fun solveFor(inputFilePath: String) {
         v.add(x, row)
         row.forEachIndexed { y, s -> if (s == "*") wormHoles.add(Coordinate(x, y)) }
     }
+    val matrix = CircularMatrix(v, c, r)
 
     //solve
     val result: String = snakes.joinToString { it.write() }//TODO
