@@ -24,7 +24,7 @@ data class SnakeSerializableModelImpl constructor(
                 toReturn += positions[it]
             }
 
-            if (it != moves.size - 1) toReturn += " "
+            if (it < moves.size - 1) toReturn += " "
         }
 
         return toReturn

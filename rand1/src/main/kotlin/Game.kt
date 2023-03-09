@@ -43,39 +43,46 @@ fun solveFor(inputFilePath: String) {
     }*/
 
     var points = 0
-    snakes.forEachIndexed { index, snake ->
-        var startY = 0
-        if (index < c) {
-            var position = Coordinate(index, startY)
-            while (matrix.isWormHole(position)) {
-                position = Coordinate(index, startY)
-                startY += 1
-            }
-            snake.start = position
-
-            var row = position.y
-            while (snake.size > 0 && row < r) {
-                row += 1
-                val a = matrix.move(snake.getLastPosition(), Direction.D)
-                points += a.first
-                position = a.second
-                if (matrix.isWormHole(position)) {
-                    while (matrix.isWormHole(position) && position.y < r) {
-                        val b = matrix.move(position, Direction.D)
-                        row += 1
-                        points += b.first
-                        position = b.second
-                    }
-                    snake.moves.add(Direction.W)
-                    snake.positions.add(position)
-                } else {
-                    snake.moves.add(Direction.D)
-                    snake.positions.add(position)
-                }
-                snake.size -= 1
-            }
+    var position = Coordinate(0,0)
+    snakes.forEach { snake ->
+        while(matrix.isWormHole(position)){
+            //trova la prima posizione non wormhole
+            position = matrix.getDestination(position,matrix.nextMove(position))!!
         }
+
+        snake.start = position
+        var moves = 1
+        while (moves<snake.size){
+            // qual è la possima mossa contigua alla posizione corrente?
+            val nextMove = matrix.nextMove(position)
+
+            // qual è la prossima posizione seguendo la prossima mossa?
+            //position = matrix.getDestination(position,nextMove)!!
+
+            // effettua prossima mossa e registrala nello snake
+            val a = matrix.move(position, nextMove)
+            snake.moves.add(nextMove)
+            snake.positions.add(a.second)
+            position=a.second
+            //aggiungi punti
+            points += a.first
+
+            if(matrix.isWormHole(position)){
+                //se sono caduto in un warmhole passa oltre e registra il punteggio
+                snake.moves.add(Direction.W)
+                val b = matrix.move(position, nextMove)
+                snake.positions.add(b.second)
+                position=a.second
+                points += b.first
+            }
+
+            moves +=1
+        }
+
+        position = matrix.getDestination(position, matrix.nextMove(position))!!
     }
+
+    //println(snakes)
 
 
     println("points $points")
