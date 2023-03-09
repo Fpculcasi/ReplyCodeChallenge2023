@@ -24,4 +24,5 @@ class CircularMatrix(var matrix: List<List<String>> = ArrayList(ArrayList()), va
             Direction.W -> null
         }
     }
+
 }
